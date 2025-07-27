@@ -9,5 +9,4 @@ Setup Instructions:
 5. Open `signup.php` in browser to register users.
 6. Then open `login.php` to login.
 
-Video Demo:
-(Add your YouTube video URL here)
+
