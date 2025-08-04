@@ -15,7 +15,7 @@
  * - Requires db.php for database connection.
  * - Requires a 'user' table with 'username', 'password', 'firstName', 'lastName', and 'email' fields.
  * 
- * @author Team 4
+ * @author Team 2
  * @version Phase 1
  */
 
