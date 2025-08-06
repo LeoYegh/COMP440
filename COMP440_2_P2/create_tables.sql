@@ -22,8 +22,9 @@ CREATE TABLE user (
 CREATE TABLE items (
     id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(50) NOT NULL,
-    descrip VARCHAR(255) NOT NULL,
+    description  VARCHAR(255) NOT NULL,
     category VARCHAR(255) NOT NULL,
     price DECIMAL(7,2) NOT NULL,
-    posted TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    posted DATE DEFAULT CURRENT_DATE,
+    posted_by VARCHAR(50), FOREIGN KEY (posted_by) REFERENCES user(username)
 );
