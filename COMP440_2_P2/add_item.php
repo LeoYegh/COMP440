@@ -14,18 +14,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $posted = date('Y-m-d');
     $posted_by = $_SESSION['user'];
 
-    // Get and sanitize item input
-    $title = $_POST['title'];
-    $description = $_POST['description'];
-    $category = $_POST['category'];
-    $price = $_POST['price'];
+    $stmt = $pdo->prepare("SELECT * FROM items WHERE posted_by = ? AND posted = ?");
+    $stmt->execute([$posted_by, $posted]);
+
+    if ($stmt->rowCount() > 1) {
+        $message = "Max amount of items added for today: 2/2";
+    } else{
+        // Get and sanitize item input
+        $title = $_POST['title'];
+        $description = $_POST['description'];
+        $category = $_POST['category'];
+        $price = $_POST['price'];
     
-    if (!empty($title) && !empty($description) && !empty($category) && !empty($price)) {
-        $insert = $pdo->prepare("INSERT INTO items (title, description, category, price, posted, posted_by) VALUES (?, ?, ?, ?, ?, ?)");
-        $insert->execute([$title, $description, $category, $price, $posted, $posted_by]);
-        $message = "Item added successfully!";
-    } else {
-        $message = "Please fill all fields!";
+        if (!empty($title) && !empty($description) && !empty($category) && !empty($price)) {
+            $insert = $pdo->prepare("INSERT INTO items (title, description, category, price, posted, posted_by) VALUES (?, ?, ?, ?, ?, ?)");
+            $insert->execute([$title, $description, $category, $price, $posted, $posted_by]);
+            header("Location: dashboard.php");
+            exit();
+        } else {
+            $message = "Please fill all fields!";
+        }
     }
 }
 
