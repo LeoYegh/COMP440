@@ -28,3 +28,11 @@ CREATE TABLE items (
     posted DATE DEFAULT CURRENT_DATE,
     posted_by VARCHAR(50), FOREIGN KEY (posted_by) REFERENCES user(username)
 );
+
+CREATE TABLE reviews (
+    item_id INT, FOREIGN KEY (item_id) REFERENCES items(id),
+    rating VARCHAR(50) NOT NULL,
+    description VARCHAR(255) NOT NULL,
+    posted DATE DEFAULT CURRENT_DATE,
+    posted_by VARCHAR(50), FOREIGN KEY (posted_by) REFERENCES user(username)
+)
