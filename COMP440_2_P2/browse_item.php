@@ -13,8 +13,28 @@ if (!isset($_SESSION['user'])) {
 $stmt = $pdo->query("SELECT * FROM items");
 $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get and sanitize user input
+    $category = $_POST['category'];
+
+    // Prepare and execute SQL statement to fetch user by username
+    $stmt = $pdo->prepare("SELECT * FROM items WHERE category = ?");
+    $stmt->execute([$category]);
+    $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
 ?>
 <html>
+    <body>
+        <a href="dashboard.php">Dashboard</a>
+        <br />
+        <br />
+        <form method="POST">
+            <!-- category input -->
+            <input name="category" required placeholder="category"><br><br>
+            <button type="submit">Search</button>
+        </form>
+    </body>
     <table border="1" cellspacing="10" cellpadding="8">
         <thead>
             <tr>

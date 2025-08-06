@@ -61,5 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </form>
 <!-- Display error message if login fails -->
 <p style="color:red"><?= $message ?></p>
+<br />
+<a href="signup.php">Sign Up</a>
 </body>
 </html>
