@@ -15,16 +15,23 @@
     $posted = date('Y-m-d');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    $stmt = $pdo->prepare("SELECT * FROM reviews WHERE posted_by = ? AND item_id = ?");
+    
+    // checking if reviewing own item
+    $stmt = $pdo->prepare("SELECT * FROM items WHERE posted_by = ? AND id = ?");
     $stmt->execute([$posted_by, $item_id]);
-
     if ($stmt->rowCount() > 0) {
-        $message = "Can only review once per item.";
+        $message = "Can't review own item.";
     } else{
-        $stmt = $pdo->prepare("SELECT * FROM reviews WHERE posted_by = ? AND posted = ?");
-        $stmt->execute([$posted_by, $posted]);
-        if ($stmt->rowCount() > 1) {
+        // checking if already reviewed item
+        $stmt = $pdo->prepare("SELECT * FROM reviews WHERE posted_by = ? AND item_id = ?");
+        $stmt->execute([$posted_by, $item_id]);
+        if ($stmt->rowCount() > 0) {
+            $message = "Can only review once per item.";
+        } else{
+            // checking if already reviewed twice today
+            $stmt = $pdo->prepare("SELECT * FROM reviews WHERE posted_by = ? AND posted = ?");
+            $stmt->execute([$posted_by, $posted]);
+            if ($stmt->rowCount() > 1) {
             $message = "Max amount of reviews added for today: 2/2";
         } else{
             // Get and sanitize item input
@@ -38,6 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 exit();
             } else {
                 $message = "Please fill all fields!";
+                }
             }
         }
     }
