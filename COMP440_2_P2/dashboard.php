@@ -17,6 +17,10 @@ if (!isset($_SESSION['user'])) {
 <br />
 <br />
 
+<a href="browse_item.php">Search Items</a>
+<br />
+<br />
+
 <a href="login.php">Logout</a>
 </body>
 </html>
