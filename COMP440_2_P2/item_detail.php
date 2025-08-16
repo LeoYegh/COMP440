@@ -1,18 +1,45 @@
 <?php
-    require 'db.php';
-    session_start();
+/**
+ * item_detail.php
+ * 
+ * Allows logged in users to make a review on an item.
+ * 
+ * Workflow:
+ * - Check if user is logged in, redirect to login if not
+ * - Check for item ID in GET request and store in session
+ * - For POST requests:
+ *   - Validate user isn't reviewing their own item
+ *   - Check user hasn't already reviewed this item
+ *   - Verify user hasn't exceeded daily review limit (2)
+ *   - Process valid review submissions
+ *   - Redirect to dashboard after successful submission
+ * - Display review form with error messages as needed
+ * 
+ * Dependencies:
+ * - Requires db.php for database connection
+ * - Requires 'items' table with: 'id', 'title', 'description', 'category', 'price', 'posted', and 'posted_by' as it's fields
+ * - Requires 'reviews' table with: 'item_id', 'rating', 'description', 'posted', and 'posted_by' as it's fields
+ * - Requires login.php for unauthorized users
+ * - Requires dashboard.php for redirection
+ *
+ *
+ * @author Team 2
+ * @version Phase 2
+ */
+require 'db.php';
+session_start();
 
-    $message = '';
+$message = '';
     
-    if (isset($_GET['id'])) {
-        $_SESSION['item_id'] = (int)$_GET['id']; // Save ID in session
-        header("Location: item_detail.php");     // Redirect to detail page
-        exit();
-    }
+if (isset($_GET['id'])) {
+    $_SESSION['item_id'] = (int)$_GET['id']; // Save ID in session
+    header("Location: item_detail.php");     // Redirect to detail page
+    exit();
+}
 
-    $item_id = $_SESSION['item_id'];
-    $posted_by = $_SESSION['user'];
-    $posted = date('Y-m-d');
+$item_id = $_SESSION['item_id'];
+$posted_by = $_SESSION['user'];
+$posted = date('Y-m-d');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     

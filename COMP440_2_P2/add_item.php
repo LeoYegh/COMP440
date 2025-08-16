@@ -1,5 +1,26 @@
 <?php
-
+/**
+ * add_item.php
+ * 
+ * Allows logged in users to add their own items to the database.
+ * 
+ * Workflow:
+ * - Check if user is logged in, redirect to login if not
+ * - For POST requests:
+ *   - Check if user has already posted maximum items (2) today
+ *   - Insert new item into database if validation passes
+ *   - Redirect to dashboard on success or show error message
+ *   - Accepts title, description, category, and price
+ * 
+ * Dependencies:
+ * - Requires db.php for database connection
+ * - Requires 'items' table with: 'id', 'title', 'description', 'category', 'price', 'posted', and 'posted_by' as it's fields
+ * - Requires login.php for unauthorized users
+ * - Requires dashboard.php for redirection
+ * 
+ * @author Team 2
+ * @version Phase 2
+ */
 require 'db.php';
 session_start();
 
