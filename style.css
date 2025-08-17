@@ -1,0 +1,137 @@
+body {
+<<<<<<< HEAD
+    font-family: Arial;
+    padding: 20px;
+    background: #f7f7f7;
+}
+form {
+    background: white;
+    padding: 15px;
+    border: 1px solid #ccc;
+    width: 300px;
+}
+input, button {
+    display: block;
+    margin: 10px 0;
+    padding: 8px;
+    width: 95%;
+=======
+    background: #111 url('stars.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    font-family: Arial, sans-serif;
+}
+
+.top-bar {
+    width: 100vw;
+    height: 60px;
+    background: #FFD580;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #222;
+    letter-spacing: 2px;
+    box-shadow: 0 2px 8px #0003;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.centered-container {
+    background: rgba(34,34,34,0.92);
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px #0008;
+    width: 100%;
+    max-width: 350px;
+    text-align: center;
+    margin-top: 100px; /* space for top bar */
+    margin-bottom: 40px;
+}
+
+input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 6px;
+    background: #333;
+    color: #fff;
+}
+
+button {
+    width: 95%;
+    padding: 10px;
+    background: #fff;
+    color: #111;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: #ddd;
+}
+
+a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+p {
+    margin: 10px 0 0 0;
+}
+
+.table-container {
+    background: rgba(0,0,0,0.92);
+    border-radius: 12px;
+    box-shadow: 0 0 20px #0008;
+    margin: 40px auto 0 auto;
+    padding: 30px 20px;
+    max-width: 900px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.table-container table {
+    background: transparent;
+    color: #fff;
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+}
+
+.table-container th, .table-container td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #444;
+}
+
+.table-container th {
+    background: #222;
+    color: #FFD580;
+    font-weight: bold;
+}
+
+.table-container tr {
+    transition: background 0.2s;
+}
+
+.table-container tr:hover {
+    background: #222;
+    cursor: pointer;
+>>>>>>> 66f2cb8 (Delete old COMP440_2_P2 files)
+}
