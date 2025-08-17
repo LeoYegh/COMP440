@@ -57,27 +57,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Signup</title>
+    <title>Page Title</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h2>Signup</h2>
-<form method="POST">
-    <!-- Username input -->
-    <input name="username" required placeholder="Username"><br>
-    <!-- Password input -->
-    <input name="password" type="password" required placeholder="Password"><br>
-    <!-- Confirm password input -->
-    <input name="confirm" type="password" required placeholder="Confirm Password"><br>
-    <!-- First name input -->
-    <input name="firstName" placeholder="First Name"><br>
-    <!-- Last name input -->
-    <input name="lastName" placeholder="Last Name"><br>
-    <!-- Email input -->
-    <input name="email" type="email" required placeholder="Email"><br>
-    <button type="submit">Register</button>
-</form>
-<!-- Display error message if registration fails -->
-<p style="color:red"><?= $message ?></p>
+<div class="top-bar">
+    Welcome to groupTWOS
+</div>
+<div class="centered-container">
+    <h2>Signup</h2>
+    <form method="POST">
+        <!-- Username input -->
+        <input name="username" required placeholder="Username"><br>
+        <!-- Password input -->
+        <input name="password" type="password" required placeholder="Password"><br>
+        <!-- Confirm password input -->
+        <input name="confirm" type="password" required placeholder="Confirm Password"><br>
+        <!-- First name input -->
+        <input name="firstName" placeholder="First Name"><br>
+        <!-- Last name input -->
+        <input name="lastName" placeholder="Last Name"><br>
+        <!-- Email input -->
+        <input name="email" type="email" required placeholder="Email"><br>
+        <button type="submit">Register</button>
+    </form>
+    <!-- Display error message if registration fails -->
+    <p style="color:red"><?= $message ?></p>
+</div>
 </body>
 </html>

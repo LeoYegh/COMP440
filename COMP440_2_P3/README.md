@@ -1,6 +1,6 @@
 # CSUN COMP440 Database Design
 
-Project - Phase 1
+Project - Phase 2
 
 Team: #2
 
@@ -13,7 +13,7 @@ Setup Instructions:
 
 3\. Place all files in a PHP-enabled server directory (e.g., XAMPP htdocs).
 
-4\. Start Apache and MySQL. (if MySQL not running then find and kill MySQL processes)
+4\. Start Apache and MySQL. (if MySQL not running then find and terminate all MySQL.exe)
 
 5\. Open `signup.php` in browser to register users.
 
@@ -21,7 +21,10 @@ Setup Instructions:
 
 
 
-Video Link: https://youtu.be/jLVSZWYn9ws
+Video Link: 
 
+Phase 1: https://youtu.be/jLVSZWYn9ws
+
+Phase 2: https://youtu.be/wyP65QxFq78
 
 

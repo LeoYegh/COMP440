@@ -51,17 +51,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h2>Login</h2>
-<form method="POST">
-    <!-- Username input -->
-    <input name="username" required placeholder="Username"><br>
-    <!-- Password input -->
-    <input name="password" type="password" required placeholder="Password"><br>
-    <button type="submit">Login</button>
-</form>
-<!-- Display error message if login fails -->
-<p style="color:red"><?= $message ?></p>
-<br />
-<a href="signup.php">Sign Up</a>
+<div class="top-bar">
+    Welcome to groupTWOS
+</div>
+<div class="centered-container">
+    <h2>Login</h2>
+    <form method="POST" autocomplete="off">
+        <input name="username" required placeholder="Username" autofocus autocomplete="username"><br>
+        <input name="password" type="password" required placeholder="Password" autocomplete="current-password"><br>
+        <button type="submit">Login</button>
+    </form>
+    <?php if ($message): ?>
+        <p style="color:#ff4444"><?= htmlspecialchars($message) ?></p>
+    <?php endif; ?>
+    <br />
+    <a href="signup.php">Sign Up</a>
+</div>
 </body>
 </html>
